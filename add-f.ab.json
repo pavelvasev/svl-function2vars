@@ -1,0 +1,90 @@
+{
+  "title": "Добавить функцию f(x,y)",
+  "help": "",
+  "icon": "",
+  "chain": [
+    {
+      "ability": "create-robot",
+      "input": "/Scene",
+      "nameinchain": "/add-f/create-robot",
+      "initParams": {
+        "type": "Function2vars"
+      }
+    },
+    {
+      "ability": "assign-params",
+      "input": "/add-f/create-robot/Function2vars",
+      "nameinchain": "/add-f/create-robot/Function2vars/assign-params",
+      "initParams": {
+        "func_code": "function (x,y) {\nreturn 3*Math.cos(x)*Math.sin(y);\n}"
+      }
+    },
+    {
+      "ability": "paint-f",
+      "input": "/add-f/create-robot/Function2vars",
+      "nameinchain": "/add-f/create-robot/paint-f",
+      "initParams": {
+        "field": "0 100 1\n0 100 1",
+        "fastrender": 1
+      }
+    },
+    {
+      "ability": "manage-object-radius",
+      "input": "/add-f/create-robot/paint-f/array2d-to-points/Points",
+      "nameinchain": "/add-f/create-robot/paint-f/array2d-to-points/manage-object-radius",
+      "initParams": {
+        "Radius": 0.4
+      }
+    },
+    {
+      "ability": "manage-object-color",
+      "input": "/add-f/create-robot/paint-f/array2d-to-points/Points",
+      "nameinchain": "/add-f/create-robot/paint-f/array2d-to-points/manage-object-color",
+      "initParams": {
+        "cvet": "0.25 0.17 1"
+      }
+    },
+    {
+      "ability": "create-interface-o",
+      "input": "/add-f/create-robot",
+      "nameinchain": "/add-f/create-robot/create-interface-o"
+    },
+    {
+      "ability": "add-param-to-interface",
+      "input": "/add-f/create-robot/create-interface-o/Interface",
+      "nameinchain": "/add-f/create-robot/create-interface-o/add-param-to-interface",
+      "initParams": {
+        "objref": "/add-f/create-robot/Function2vars",
+        "guid": "func_code"
+      }
+    },
+    {
+      "ability": "add-param-to-interface",
+      "input": "/add-f/create-robot/create-interface-o/Interface",
+      "nameinchain": "/add-f/create-robot/create-interface-o/add-param-to-interface#2",
+      "initParams": {
+        "objref": "/add-f/create-robot/paint-f/array2d-to-points/manage-object-color",
+        "guid": "cvet"
+      }
+    },
+    {
+      "ability": "add-param-to-interface",
+      "input": "/add-f/create-robot/create-interface-o/Interface",
+      "nameinchain": "/add-f/create-robot/create-interface-o/add-param-to-interface#3",
+      "initParams": {
+        "objref": "/add-f/create-robot/paint-f/array2d-to-points/manage-object-radius",
+        "guid": "Radius"
+      }
+    },
+    {
+      "ability": "add-tdeed-to-interface",
+      "input": "/add-f/create-robot/create-interface-o/Interface",
+      "nameinchain": "/add-f/create-robot/create-interface-o/add-tdeed-to-interface",
+      "initParams": {
+        "title": "Показать поверхность",
+        "objref": "/add-f/create-robot/paint-f/array2d-to-points/Points",
+        "guid": "triangulate-to-z"
+      }
+    }
+  ]
+}
