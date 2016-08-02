@@ -2,14 +2,6 @@
 
 Item {
 
-  PerformDeed {
-    name: "load-ability"
-    input: [Qt.resolvedUrl( "add-f.ab.json" ),
-            Qt.resolvedUrl( "paint-f/TheAbility.qml" ),
-            Qt.resolvedUrl( "combine-f/TheAbility.qml" ),
-            ]
-  }
-
   Column {
     property var tag: "right"
 

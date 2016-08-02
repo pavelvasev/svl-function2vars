@@ -1,1 +1,4 @@
+paint-f/TheAbility.qml
+combine-f/TheAbility.qml
+add-f.ab.json
 init.qml
