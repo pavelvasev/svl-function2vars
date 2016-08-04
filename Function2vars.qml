@@ -6,36 +6,10 @@
     //////////////////////////////////////////////////////////////////
     property alias ate1: te1
 
-    Column {
+    TextEditCode {
         id: te1
-        property var guid: "func_code"
-        property var value: "function (x,y) {\nreturn x-y;\n}"
-
-        onValueChanged: txt.text = value;
-
-        TextEdit {
-            id: txt
-            width: 450
-            height: 100
-            text: te1.value
-
-            onTextChanged: {
-                if (te1.value == text) return;
-                btEnter.enabled = true;
-            }
-        }
-
-        Button {
-            id: btEnter
-            text: "ВВОД"
-            enabled: false
-            anchors.margins: 5
-            onClicked: {
-              te1.value = txt.text;
-              enabled = false;
-            }
-        }
-
+        guid: "func_code"
+        value: "function (x,y) {\nreturn x-y;\n}"
     }
 
     //////////////////////////////////////////////////////////////////
