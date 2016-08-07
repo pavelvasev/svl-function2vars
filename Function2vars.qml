@@ -3,6 +3,8 @@
 
     params: [ro,h1,ap,bp,te1,status]
 
+    property bool iLoveParams: true
+
     //////////////////////////////////////////////////////////////////
     property alias ate1: te1
 
